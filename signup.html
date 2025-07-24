@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e3f2fd;
+      margin: 0;
+      padding: 0;
+    }
+
+    .signup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-box {
+      background: white;
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 350px;
+      position: relative;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 15px;
+      border: 2px solid #464040;
+    }
+
+    .password-container {
+      position: relative;
+      margin: 10px 0;
+    }
+
+    .password-container input {
+      width: 100%;
+      padding: 10px;
+      padding-right: 15px;
+      border-radius: 15px;
+      border: 2px solid #464040;
+    }
+
+    .toggle-icon {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+<div class="signup-container">
+  <div class="signup-box">
+    <h2>Signup</h2>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+
+    <div class="password-container">
+      <input type="password" id="password" placeholder="Password" required>
+      <img src="hide.png" alt="toggle" class="toggle-icon" onclick="togglePassword('password', this)">
+    </div>
+
+    <div class="password-container">
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <img src="hide.png" alt="toggle" class="toggle-icon" onclick="togglePassword('confirmPassword', this)">
+    </div>
+
+    <button onclick="signup()">Create Account</button>
+  </div>
+</div>
+
+<script>
+  function togglePassword(fieldId, icon) {
+    const field = document.getElementById(fieldId);
+    if (field.type === "password") {
+      field.type = "text";
+      icon.style.opacity = "0.5";
+    } else {
+      field.type = "password";
+      icon.style.opacity = "1";
+    }
+  }
+
+  function signup() {
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (!name || !phone || !email || !password || !confirmPassword) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    localStorage.setItem("signupName", name);
+    localStorage.setItem("signupPhone", phone);
+    localStorage.setItem("signupEmail", email);
+    localStorage.setItem("signupPassword", password);
+    localStorage.setItem("isLoggedIn", "false");
+
+    alert("Signup successful! You can now login.");
+    window.location.href = "pawan.html"; // Replace with your landing page
+  }
+</script>
+
+</body>
+</html>
