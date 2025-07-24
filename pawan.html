@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marwadi University</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    /* ✨ Top Bar Stylish */
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .profile-left {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #user-photo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid #2c3e50;
+      margin-right: 10px;
+    }
+
+    #uploadPhoto {
+      display: none;
+    }
+
+    .user-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #user-name {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    #user-email {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .clock {
+      font-size: 14px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-top: 5px;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background: #34495e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px #ccc;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #3498db;
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 12px 24px;
+      margin: 10px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background: #34495e;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile-left {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      #user-photo {
+        margin-bottom: 5px;
+      }
+
+      .clock {
+        margin-left: 10px;
+        margin-bottom: 10px;
+      }
+
+      .button {
+        width: 90%;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Stylish Top Bar -->
+  <div class="profile-header">
+    <div class="profile-left">
+      <label for="uploadPhoto">
+        <img id="user-photo" src="boss.gif" alt="Profile" title="Click to change photo" />
+      </label>
+      <input type="file" id="uploadPhoto" accept="image/*" onchange="uploadPhoto(event)" />
+      <div class="user-details">
+        <div id="user-name">Welcome, User</div>
+        <div id="user-email">user@example.com</div>
+      </div>
+    </div>
+    <div class="clock" id="clock">Loading...</div>
+  </div>
+
+  <header>
+    <h1>Marwadi University</h1>
+    <p>Empowering Students for a Brighter Future</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome to Marwadi University</h2>
+    <p>
+      Our campus is a center of academic excellence that provides vibrant opportunities
+      for personal and professional growth. We believe in shaping tomorrow's leaders through quality education.
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Marwadi University was established in 2000 to deliver quality education across engineering,
+      science, management, and humanities. We are known for innovation, industry partnerships, and holistic student development.
+    </p>
+  </section>
+
+  <section id="courses">
+    <h2>Courses Offered</h2>
+    <ul>
+      <li>Bachelor of Technology (B.Tech) - CSE, CE, AI & ML</li>
+      <li>Bachelor of Commerce (B.Com)</li>
+      <li>Master of Business Administration (MBA)</li>
+      <li>Bachelor of Science (B.Sc)</li>
+      <li>Master of Science (M.Sc)</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: kavitadiva741@gmail.com</p>
+    <p>Phone: +91 9234532112</p>
+    <p>Address: Marwadi University, Rajkot, Gujarat, India</p>
+  </section>
+
+  <div class="button-container">
+    <a href="login.html" class="button">Login</a>
+    <a href="signup.html" class="button">Signup</a>
+    <button class="button" onclick="go()">Go</button>
+    <button class="button" onclick="logout()">Logout</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Marwadi University. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="https://facebook.com">F</a>
+      <a href="https://instagram.com">I</a>
+      <a href="https://twitter.com">T</a>
+    </div>
+  </footer>
+
+  <script>
+    // Time update
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // User data load
+    const name = localStorage.getItem("signupName") || "User";
+    const email = localStorage.getItem("signupEmail") || "user@example.com";
+    const photo = localStorage.getItem("profileImage");
+
+    document.getElementById("user-name").innerText = `👤 ${name}`;
+    document.getElementById("user-email").innerText = email;
+
+    if (photo) {
+      document.getElementById("user-photo").src = photo;
+    }
+
+    function uploadPhoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const imgSrc = e.target.result;
+          localStorage.setItem("profileImage", imgSrc);
+          document.getElementById("user-photo").src = imgSrc;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function go() {
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        window.location.href = "pawan1.html";
+      } else {
+        alert("Please login first to access this page.");
+        window.location.href = "login.html";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      alert("You have been logged out.");
+      window.location.reload();
+    }
+  </script>
+
+</body>
+</html>
+
